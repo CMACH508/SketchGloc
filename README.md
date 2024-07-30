@@ -71,6 +71,6 @@ categories=['pig','bee','flower','bus','giraffe','car', 'cat' , 'horse'],
         is_training=True,  # Training mode or not
         num_per_category=70000  # Training samples from each category
 ```
-We also provide three pre-trained models used in the article, and you can get them from [link](https://quickdraw.withgoogle.com/data).
+We also provide three pre-trained models used in the article, and you can get them from [link](https://jbox.sjtu.edu.cn/l/91hH6A).
 
 
