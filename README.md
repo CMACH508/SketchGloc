@@ -38,7 +38,38 @@ For calculating Rec, you need to train a Sketch_a_net for each dataset as the cl
 
 ## Hyperparameters
 ```
-
+categories=['pig','bee','flower','bus','giraffe','car', 'cat' , 'horse'],  
+        # Sketch categories 'pig','bee','flower','bus','giraffe'
+        #ds2: 'airplane', 'angel', 'apple', 'butterfly', 'bus', 'cake','fish', 'spider', 'The Great Wall','umbrella'
+        #ds3:'pig','bee','flower','bus','giraffe','car', 'cat' , 'horse'
+        num_steps=1000001,  # Number of total steps (the process will stop automatically if the loss is not improved)
+        re_scale=0, #Reorganization task setting
+        save_every=1,  # Number of epochs before saving model
+        dec_rnn_size=512,  # Size of decoder
+        enc_model='lstm',
+        enc_rnn_size=512,
+        dec_model='hyper',  # Decoder: lstm, layer_norm or hyper
+        max_seq_len=-1,  # Max sequence length. Computed by DataLoader
+        max_stroke_len = -1,
+        max_strokes_num = -1,
+        z_size=128,  # Size of latent variable
+        batch_size=100,  # Minibatch size
+        num_mixture=5,  # Recommend to set to the number of categories
+        learning_rate=1e-3,  # Learning rate
+        decay_rate=0.99999,   # Learning rate decay per minibatch.
+        min_learning_rate=1e-5,  # Minimum learning rate
+        grad_clip=1.,  # Gradient clipping
+        de_weight=1.,  # Weight for deconv loss
+        use_recurrent_dropout=True,  # Dropout with memory loss
+        recurrent_dropout_prob=0.90,  # Probability of recurrent dropout keep
+        use_input_dropout=False,  # Input dropout
+        input_dropout_prob=0.9,  # Probability of input dropout keep
+        use_output_dropout=False,  # Output droput
+        output_dropout_prob=0.9,  # Probability of output dropout keep
+        random_scale_factor=0.1,  # Random scaling data augmention proportion
+        augment_stroke_prob=0.1,  # Point dropping augmentation proportion
+        is_training=True,  # Training mode or not
+        num_per_category=70000  # Training samples from each category
 ```
 We also provide three pre-trained models used in the article, and you can get them from [link](https://quickdraw.withgoogle.com/data).
 
